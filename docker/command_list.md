@@ -34,8 +34,32 @@ $ docker rm -f $(docker ps -a -q)
 ```
 
 ---
-## docker-compose 명령어
+## Docker-compose 명령어
 > docker-compose ...
 ```
 $ docker-compose up
+```
+
+---
+## Docker Swarm 명령어
+> docker swarm은 docker 1.12 버전부터 swarm mode로 합쳐짐.
+
+### docker swarm
+```
+# 해당 서버를 매니저 노드로 실행
+$ docker swarm init --advertise-addr IP
+
+# 워커 노드가 swarm에서 떠나기
+$ docker swarm leave
+
+# 마스터 노드가 swarm에서 떠나기
+$ docker swarm leave --force
+```
+### docker node
+```
+# 매니저 노드에서 워커 노드 확인하기 
+$ docker node ls
+
+# 마스터 노드에서 자식 노드 보내기
+$ docker node rm HOSTNAME
 ```
